@@ -7,7 +7,9 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\SiswaController;
+use Illuminate\Foundation\Console\AboutCommand;
 use Illuminate\Support\Facades\Route;
+use Mockery\Matcher\Contains;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,17 +49,16 @@ Route::middleware('guest')->group(function () {
     Route::get('/', function () {
         return view('home');
     });
-
     Route::get('/about', function () {
         return view('about');
     });
 
-    Route::get('/project', function () {
-        return view('project');
+    Route::get('/kontak', function () {
+        return view('kontak');
     });
 
-    Route::get('/contact', function () {
-        return view('contact');
+    Route::get('/projek', function () {
+        return view('projek');
     });
 });
 
@@ -73,15 +74,13 @@ Route::middleware('auth')->group(function () {
     Route::get('master_project/{id_siswa}/hapus', [ProjectController::class, 'hapus'])->name('master_project.hapus');
     Route::resource('master_project', ProjectController::class);
     Route::resource('master_contact', ContactController::class);
-    Route::get('master_contact/create/{id_siswa}', [ContactController::class, 'tambah'])->name('master_contact.tambah');
-    Route::get('master_contact/{id_siswa}/hapus', [ContactController::class, 'hapus'])->name('master_contact.hapus');
+    Route::get('/master_contact/create/{id}', [ContactController::class, 'create']);
+    Route::get('/tambahjenis', [ContactController::class, 'tambahjenisview']);
+    Route::post('/tambahjenis/store', [ContactController::class, 'tambahjenis']);
+    Route::post('/master_contact/store/{id}', [ContactController::class, 'store']);
+    Route::post('/master_contact/hapus/{id}', [ContactController::class, 'hapus']);
 });
 
 Route::get('/admin', function () {
     return view('layout.admin');
 });
-
-Route::resource('home', HomeController::class);
-Route::resource('about', AboutController::class);
-Route::resource('contact', TContactController::class);
-Route::resource('project', TProjectController::class);

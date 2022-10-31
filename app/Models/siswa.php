@@ -21,7 +21,7 @@ class siswa extends Model
 
     public function kontak()
     {
-        return $this->belongsToMany('App\Models\jenis_kontak')->withPivot('deskripsi');
+        return $this->belongsToMany('App\Models\jenis_kontak', 'jenis_kontak_siswa')->withPivot('deskripsi', 'id');
     }
 
     public function project()

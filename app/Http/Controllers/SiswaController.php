@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class SiswaController extends Controller
 {
+    // public function_construct()
+    // {
+    //     $his->middleware(['auth', 'admin']);
+    //     $his->middleware(['auth', 'walas'])->only['index'];
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -87,8 +92,9 @@ class SiswaController extends Controller
     public function show($id)
     {
         $siswa =  siswa::find($id);
-        $kontaks = $siswa->kontak()->get();
-        return view('ShowSiswa', compact('siswa', 'kontaks'));
+        $kontak = $siswa->kontak()->get();
+        $project = $siswa->project()->get();
+        return view('ShowSiswa', compact('siswa', 'kontak', 'project'));
     }
 
     /**

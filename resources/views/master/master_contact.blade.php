@@ -1,6 +1,6 @@
 @extends('layout.admin')
-@section('title', 'Master Contact')
-@section('content-title', 'Master Contact')
+@section('title', 'Master Kontak')
+@section('content-title', 'Master Kontak')
 @section('content')
 @if($message = Session::get('success'))
 <div class="alert alert-success alert-block">
@@ -8,6 +8,49 @@
     <strong>{{ $message }}</strong>
 </div>
 @endif
+{{-- dckdacbcklsnladnclnldc --}}
+<div class="row">
+    <div class="col-lg">
+        <div class="card shadow mb-4">
+            <div class="card-header">
+                <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-address-card">Jenis Kontak</i></h6>
+            </div>
+            <div class="card-body">
+                <table class="table table-hover" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Jenis Kontak</th>
+                            <th class="text-center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($kontak as $i=> $item)
+                        <tr>
+                            <td scope="row">{{++ $i}}</td>
+                            <td>{{ $item->jenis_kontak }}</td>
+                            <td class="text-center">
+                                <form action="/master_contact/hapus/{{$item->id}}" method="post">
+                                    @csrf
+                                    <button class="btn btn-danger" type="submit"><i class="fas fa-trash"></i></button>
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                <div class="card-footer d-flex justify-content-end">
+                    {{ $kontak->links() }}
+                    &nbsp;
+                    &nbsp;
+                    <div style="font-weight: 500;">
+                        <a href="/tambahjenis" class="btn btn-success">Tambah Kontak</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="row">
     <div class="col-lg-6">
         <div class="card shadow mb-4">
@@ -29,8 +72,8 @@
                             <td>{{ $item -> nisn }}</td>
                             <td>{{ $item -> nama }}</td>
                             <td class="text-center">
-                                <a class="btn btn-info" onclick="show({{ $item -> id }})"><i class="fas fa-folder-open"></i></a>
-                                <a href="{{ route('master_contact.tambah', $item -> id) }}" class="btn btn-success"><i class="fas fa-plus"></i></a>
+                                <a class="btn btn-info" onclick="show({{ $item->id }})"><i class="fas fa-folder-open"></i></a>
+                                <a class="btn btn-success" href="/master_contact/create/{{ $item -> id }}"><i class="fas fa-plus"></i></a>
                             </td>
                         </tr>
                         @endforeach
@@ -47,7 +90,7 @@
             <div class="card-header">
                 <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-tasks">Contact Siswa</i></h6>
             </div>
-            <div class="card-body" id="project">
+            <div class="card-body" id="kontak">
                 <h6 class="text-center">Pilih siswa terlebih dahulu</h6>
             </div>
         </div>

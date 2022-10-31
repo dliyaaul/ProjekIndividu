@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\jenis_kontak;
 use App\Models\project;
 use App\Models\siswa;
 use App\Models\kontak;
@@ -19,7 +20,8 @@ class DashboardController extends Controller
         $jumlah = siswa::all()->count();
         $jumlah2 = project::all()->count();
         $jumlah3 = kontak::all()->count();
-        return view('master.dashboard', compact('jumlah', 'jumlah2', 'jumlah3'));
+        $jumlah4 = jenis_kontak::all()->count();
+        return view('master.dashboard', compact('jumlah', 'jumlah2', 'jumlah3', 'jumlah4'));
     }
 
     /**

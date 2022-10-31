@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('jenis_kontak', function (Blueprint $table) {
             $table->id();
             $table->char('jenis_kontak');
+            $table->char('deskripsi_contact');
             $table->timestamps();
         });
     }

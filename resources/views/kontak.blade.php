@@ -38,16 +38,16 @@
     <!--Navbar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">Alexander Sebastian Richard</a>
+            <a class="navbar-brand" href="#">Muhammad Dliyaa'ul Haq Shidqey</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ms-auto">
-                    <a class="nav-link active" href="/home">Home</a>
+                    <a class="nav-link active" href="/">Home</a>
                     <a class="nav-link active" href="/about">About</a>
-                    <a class="nav-link active" href="/project">Projects</a>
-                    <a class="nav-link active" href="/contact">Contact</a>
+                    <a class="nav-link active" href="/projek">Projek</a>
+                    <a class="nav-link active" href="/kontak">Kontak</a>
                 </div>
             </div>
         </div>

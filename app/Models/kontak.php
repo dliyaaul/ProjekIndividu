@@ -14,7 +14,7 @@ class kontak extends Model
         'deskripsi'
     ];
 
-    protected $table = 'jenis_kontak';
+    protected $table = 'jenis_kontak_siswa';
 
     public function siswa()
     {
