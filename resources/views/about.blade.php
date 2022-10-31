@@ -1,3 +1,4 @@
+@section('title', 'about')
 <!doctype html>
 <html lang="en">
 
@@ -30,7 +31,7 @@
         }
     </style>
 
-    <title>Tugas Portofolio</title>
+    <title>Tugas Portofolio - @yield('title')</title>
 </head>
 
 <body id="home">

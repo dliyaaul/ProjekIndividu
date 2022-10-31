@@ -30,7 +30,7 @@
         }
     </style>
 
-    <title>Alexander - @yield('title')</title>
+    <title>Tugas Portofolio - @yield('title')</title>
 </head>
 
 <body id="home">

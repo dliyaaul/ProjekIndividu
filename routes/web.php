@@ -46,7 +46,7 @@ Route::get('/', function () {
 Route::middleware('guest')->group(function () {
     Route::get('login', [LoginController::class, 'index'])->name('login'); //->middleware('guest');
     Route::post('login', [LoginController::class, 'authenticate']);
-    Route::get('dashboard', DashboardController::class, 'index');
+    Route::get('master.master_siswa', [SiswaController::class, 'index']);
     Route::get('/', function () {
         return view('home');
     });
