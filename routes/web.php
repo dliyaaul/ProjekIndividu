@@ -22,9 +22,9 @@ use Mockery\Matcher\Contains;
 |
 */
 
-Route::get('/', function () {
-    return view('master.dashboard');
-});
+// Route::get('/', function () {
+//     return view('master.dashboard');
+// });
 //Route::get('/dashboard', function () {
 //    return view('master.dashboard');
 //});
@@ -46,8 +46,7 @@ Route::get('/', function () {
 Route::middleware('guest')->group(function () {
     Route::get('login', [LoginController::class, 'index'])->name('login'); //->middleware('guest');
     Route::post('login', [LoginController::class, 'authenticate']);
-    Route::get('master.dashboard', [DashboardController::class, 'index']);
-    Route::get('master.master_siswa', [SiswaController::class, 'index']);
+
     Route::get('/', function () {
         return view('home');
     });
@@ -63,7 +62,6 @@ Route::middleware('guest')->group(function () {
         return view('projek');
     });
 });
-
 
 //Admin
 
